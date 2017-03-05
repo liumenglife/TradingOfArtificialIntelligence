@@ -46,5 +46,5 @@ if __name__=='__main__':
 	#predicted = lstm.predict_sequence_full(model, X_test, seq_len)
 	#predicted = lstm.predict_point_by_point(model, X_test)        
 
-	print 'Training duration (s) : ', time.time() - global_start_time
+	print('Training duration (s) : ', time.time() - global_start_time)
 	plot_results_multiple(predictions, y_test, 50)
