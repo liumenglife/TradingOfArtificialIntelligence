@@ -27,11 +27,11 @@ if __name__=='__main__':
 	epochs  = 1
 	seq_len = 50
 
-	print '> Loading data... '
+	print('> Loading data... ')
 
 	X_train, y_train, X_test, y_test = lstm.load_data('sp500.csv', seq_len, True)
 
-	print '> Data Loaded. Compiling...'
+	print('> Data Loaded. Compiling...')
 
 	model = lstm.build_model([1, 50, 100, 1])
 
