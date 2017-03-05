@@ -9,8 +9,12 @@ from keras.models import Sequential
 warnings.filterwarnings("ignore")
 
 def load_data(filename, seq_len, normalise_window):
-    f = open(filename, 'rb').read()
-    data = f.split('\n')
+    #f = open(filename, 'rb').read()
+    #data = f.split('\n')
+    with open(filename, mode='r', encoding='utf8') as f:
+        contents = f.read()
+    print(contents)
+    data = contents.split('\n')
 
     sequence_length = seq_len + 1
     result = []
@@ -84,7 +88,7 @@ def predict_sequence_full(model, data, window_size):
 def predict_sequences_multiple(model, data, window_size, prediction_len):
     #Predict sequence of 50 steps before shifting prediction run forward by 50 steps
     prediction_seqs = []
-    for i in range(len(data)/prediction_len):
+    for i in range(int(len(data)/prediction_len)):
         curr_frame = data[i*prediction_len]
         predicted = []
         for j in range(prediction_len):
